@@ -1,0 +1,193 @@
+/* Google web fonts 'Open Sans' (italic and normal) and 'Boogaloo' */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Lily+Script+One);
+
+/* reset CSS file to reset browser default styling to a consistent starting point */
+@import url(reset.css);
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	padding: 10px;
+	background-image: url('../img/binding_dark.png');
+}
+
+.header {
+	overflow: hidden;
+	background-image: url('../img/cloth_alike.png');
+}
+
+.logo {
+	float: left;
+}
+
+.container {
+	background-image: url('../img/linedpaper.png');
+	width: 95%;
+	margin: 0 auto;
+	padding: 0px;
+}
+
+nav, .footer {
+	background-color: black;
+	overflow: hidden;
+}
+
+nav a {
+	background-color: black;
+	transition: background-color 0.3s;
+}
+
+nav a:visited, nav a:link, nav a:hover {
+	float: left;
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+}
+
+nav a:hover {
+	background-color: gray;
+}
+
+.page {
+	margin: 20px;
+	margin-right: 0px;
+}
+
+h2 {
+	font-style: italic;
+	clear: both;
+	margin-bottom: 30px;
+}
+
+dl {
+	margin-top: 10px;
+	margin-bottom: 40px;
+}
+
+dt {
+	margin-bottom: 0.5em;
+}
+
+dd {
+	margin-left: 40px;
+	margin-bottom: 1em;
+	width: 85%;
+	line-height: 16pt;
+}
+
+.rightside {
+	padding: 0px;
+	box-shadow: 5px 5px 10px gray;
+	border: white solid 5px;
+	clear: both;
+}
+
+.col-lg-5 {
+	clear: both;
+}
+
+h3 {
+	font-size: 20pt;
+}
+
+h4 {
+	font-size: 16pt;
+	margin-left: 10px;
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+h5, p, .size {
+	font-size: 13pt;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	line-height: 16pt;
+}
+
+h5 {
+	font-weight: bold;
+}
+
+ul {
+	overflow: hidden;
+}
+
+.size {
+	margin-left: 50px;
+}
+
+.indent {
+	margin-top: 0px;
+	margin-left: 50px;
+	font-size: 13pt;
+	margin-bottom: 0px;
+}
+
+.sides {
+	margin-bottom: 20px;
+}
+
+.banner {
+	width: 40%;
+	margin-right: 15px;
+	margin-bottom: 20px;
+	margin-top: 50px;
+	margin-left: 10px;
+	box-shadow: 5px 5px 10px gray;
+	border: white solid 5px;
+	float: right;
+}
+
+.special {
+	clear: both;
+}
+
+.footer {
+	padding: 10px;
+	color: white;
+	clear: both;
+}
+
+p.footer {
+	padding: 0px;
+	font-size: 10pt;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	line-height: 12pt;
+}
+
+.github {
+	text-decoration: none;
+	color: white;
+}
+
+.github:hover {
+	text-decoration: underline;
+}
+
+@media screen and (max-width: 1170px) {
+	.video-container {
+		position: relative;
+		padding-bottom: 56.25%;
+		padding-top: 30px;
+		height: 0;
+		overflow: hidden;
+	}
+
+	.video-container iframe, .video-container object, .video-container embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+
+@media screen and (max-width: 800px) {
+	.banner {
+		margin-top: 0px;
+		width: 100%;
+	}
+}
