@@ -1,13 +1,12 @@
 function ItemModel(input) {
-    var type = input.type;
-    var name = input.name;
-    var quantity = input.quantity;
-    var size = input.size;
+    this.type = input.type;
+    this.name = input.name;
+    this.quantity = input.quantity;
+    this.size = input.size;
 }
 
 function CartModel() {
 
-    this.items = [];
     this.name = "";
     this.address1 = "";
     this.address2 = "";
@@ -15,6 +14,7 @@ function CartModel() {
     this.phone = "";
     this.nextUrl = "";
     this.nextCaption = "";
+    this.items = [];
 
     this.clearCart = function() {
         items = [];
@@ -31,15 +31,16 @@ function CartModel() {
     };
 
     this.addItem = function(item) {
-        if (existsInCart(item) > -1) {
-            
+        var i = this.existsInCart(item);
+        if (i > -1) {
+            this.items[i].quantity++;
         } else {
             this.items.push(item);
         }
     };
 
     this.existsInCart = function(item) {
-        for (var i = 0; i < items.length; i++) {
+        for (var i = 0; i < this.items.length; i++) {
             if (this.items[i].name == item.name && this.items[i].size == item.size) {
                 return i;
             }
