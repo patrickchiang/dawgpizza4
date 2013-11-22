@@ -41,6 +41,8 @@ $(function() {
     $(".indent button.order.btn.btn-default").click(addToCart);
 
     function addToCart() {
+        $(".submit-order-btn").show();
+
         var name = $(this).data("name");
         var type = $(this).data("type");
         var price = $(this).data("price");
@@ -58,18 +60,51 @@ $(function() {
 
         if (cart.existsInCart(item) == -1) {
             cart.addItem(item);
-            total += price;
             var itemHtml = $(".template").clone().removeClass("template");
-            itemHtml.html("1x " + size + " " + name);
+            itemHtml.html("1x " + size + " " + name + "<span class=\"glyphicon glyphicon-remove\"></span>");
             itemHtml.attr("data-name", name);
             itemHtml.attr("data-type", type);
             itemHtml.attr("data-size", size);
             itemHtml.attr("data-price", price);
             $(".cart").append(itemHtml);
+
+            $(".cart-item").unbind();
+            $(".cart-item").bind("click", removeFromCart);
         } else {
             cart.addItem(item);
-            total += price;
-            $('.cart-item[data-name="' + name + '"].cart-item[data-size="' + size + '"]').html(cart.getQuantity(item) + 1 + "x " + size + " " + name);
+            var itemHtml = $('.cart-item[data-name="' + name + '"].cart-item[data-size="' + size + '"]');
+            itemHtml.html(cart.getQuantity(item) + 1 + "x " + size + " " + name + "<span class=\"glyphicon glyphicon-remove\"></span>");
+            itemHtml.attr("data-quantity", cart.getQuantity(item) + 1);
+        }
+
+        total += price;
+        $(".cart-price").html(total);
+    }
+
+    function removeFromCart() {
+        var name = $(this).data("name");
+        var type = $(this).data("type");
+        var price = $(this).data("price");
+        var size = "";
+        if (type == "pizza") {
+            size = $(this).data("size");
+        }
+
+        var item = new ItemModel({
+            name : name,
+            type : type,
+            size : size,
+            quantity : 0
+        });
+
+        total -= price * (cart.getQuantity(item) + 1);
+        $(".cart-price").html(total);
+
+        cart.removeItem(item);
+        $(this).remove();
+
+        if (total == 0) {
+            $(".submit-order-btn").hide();
         }
     }
 

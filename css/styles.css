@@ -180,6 +180,18 @@ p.footer {
 	margin: 8px;
 }
 
+.submit-order {
+	margin-top: 0px;
+}
+
+.submit-order-btn {
+	display: none;
+}
+
+.glyphicon {
+	margin-left: 8px;
+}
+
 .cart-item {
 	margin-top: 20px;
 	display: block;
