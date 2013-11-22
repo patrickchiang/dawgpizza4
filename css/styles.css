@@ -200,7 +200,7 @@ p.footer {
 .col-lg-3 {
 	float: right;
 }
-
+/*
 .modal-body input {
 	border-radius: 10px;
 	border: 1px solid #ccc;
@@ -211,6 +211,10 @@ p.footer {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+}*/
+
+.modal-body .form-control {
+	margin-bottom: 3px;
 }
 
 .template {
