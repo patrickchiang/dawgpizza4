@@ -40,7 +40,12 @@ $(function() {
 
     $(".indent button.order.btn.btn-default").click(addToCart);
     $(".submit-order-btn").click(function() {
-        $("#submitOrderForm").modal();
+        if (total >= 20) {
+            $("#submitOrderForm").modal();
+            $(".minimum").html("");
+        } else {
+            $(".minimum").html("To save the environment, there is a minimum purchase of $20.");
+        }
     });
 
     function addToCart() {
