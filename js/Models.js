@@ -17,7 +17,7 @@ function CartModel() {
     this.items = [];
 
     this.clearCart = function() {
-        items = [];
+        this.items = [];
     };
 
     this.populateInfo = function(input) {

@@ -49,6 +49,13 @@ $(function() {
         }
     });
 
+    $(".clear-cart").click(function() {
+        cart.clearCart();
+        total = 0;
+        $(".cart-item").not(".template").remove();
+        $(".cart-price").html("0");
+    });
+
     function submitForm() {
         cart.populateInfo({
             name : $(".form-name").val(),
