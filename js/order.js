@@ -62,7 +62,9 @@ $(function() {
             address1 : $(".form-line1").val(),
             address2 : $(".form-line2").val(),
             zip : $(".form-zip").val(),
-            phone : $(".form-phone").val()
+            phone : $(".form-phone").val(),
+            nextUrl : "http://students.washington.edu/pchiang/info343/dawgpizza4/index.html",
+            nextCaption : "Back to DawgPizza"
         });
         $("#jsonForm").val(JSON.stringify(cart));
         $(".address-form").find('[type="submit"]').trigger("click");
