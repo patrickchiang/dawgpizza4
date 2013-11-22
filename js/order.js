@@ -55,10 +55,10 @@ $(function() {
             address1 : $(".form-line1").val(),
             address2 : $(".form-line2").val(),
             zip : $(".form-zip").val(),
-            phone : $(".form-phone").val(),
+            phone : $(".form-phone").val()
         });
         $("#jsonForm").val(JSON.stringify(cart));
-        $(".address-form").submit();
+        $(".address-form").find('[type="submit"]').trigger("click");
     }
 
     function addToCart() {

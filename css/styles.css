@@ -215,7 +215,7 @@ p.footer {
 	margin-bottom: 3px;
 }
 
-.template {
+.template, .hidden-submit {
 	display: none;
 }
 
