@@ -34,11 +34,14 @@ $(function() {
     for (var i = 0; i < com.dawgpizza.menu.desserts.length; i++) {
         var desserts = com.dawgpizza.menu.desserts[i];
         var litag = $("<ul><li></li></ul>");
-        $(litag).html('<button type="button" class="btn btn-default btn-sm" data-type="dessert" data-name="' + desserts.name + '" data-price="' + drinks.price + '">' + drinks.name + ' $' + drinks.price + "</button>").addClass("indent").find("button").addClass("order");
+        $(litag).html('<button type="button" class="btn btn-default btn-sm" data-type="dessert" data-name="' + desserts.name + '" data-price="' + drinks.price + '">' + desserts.name + ' $' + desserts.price + "</button>").addClass("indent").find("button").addClass("order");
         $(litag).appendTo(".desserts").addClass("sides");
     }
 
     $(".indent button.order.btn.btn-default").click(addToCart);
+    $(".submit-order-btn").click(function() {
+        $("#submitOrderForm").modal();
+    });
 
     function addToCart() {
         $(".submit-order-btn").show();

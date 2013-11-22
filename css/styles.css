@@ -197,6 +197,22 @@ p.footer {
 	display: block;
 }
 
+.col-lg-3 {
+	float: right;
+}
+
+.modal-body input {
+	border-radius: 10px;
+	border: 1px solid #ccc;
+}
+
+.modal-body p {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
 .template {
 	display: none;
 }
