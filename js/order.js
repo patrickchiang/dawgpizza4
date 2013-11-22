@@ -40,13 +40,26 @@ $(function() {
 
     $(".indent button.order.btn.btn-default").click(addToCart);
     $(".submit-order-btn").click(function() {
-        if (total >= 20) {
+        if (total >= 20) {// before taxes
             $("#submitOrderForm").modal();
+            $(".finalSubmitButton").click(submitForm);
             $(".minimum").html("");
         } else {
             $(".minimum").html("To save the environment, there is a minimum purchase of $20.");
         }
     });
+
+    function submitForm() {
+        cart.populateInfo({
+            name : $(".form-name").val(),
+            address1 : $(".form-line1").val(),
+            address2 : $(".form-line2").val(),
+            zip : $(".form-zip").val(),
+            phone : $(".form-phone").val(),
+        });
+        $("#jsonForm").val(JSON.stringify(cart));
+        $(".address-form").submit();
+    }
 
     function addToCart() {
         $(".submit-order-btn").show();
@@ -63,13 +76,13 @@ $(function() {
             name : name,
             type : type,
             size : size,
-            quantity : 0
+            quantity : 1
         });
 
         if (cart.existsInCart(item) == -1) {
             cart.addItem(item);
             var itemHtml = $(".template").clone().removeClass("template");
-            itemHtml.html("1x " + size + " " + name + "<span class=\"glyphicon glyphicon-remove\"></span>");
+            itemHtml.html("1x $" + price + " " + size + " " + name + "<span class=\"glyphicon glyphicon-remove\"></span>");
             itemHtml.attr("data-name", name);
             itemHtml.attr("data-type", type);
             itemHtml.attr("data-size", size);
@@ -81,12 +94,12 @@ $(function() {
         } else {
             cart.addItem(item);
             var itemHtml = $('.cart-item[data-name="' + name + '"].cart-item[data-size="' + size + '"]');
-            itemHtml.html(cart.getQuantity(item) + 1 + "x " + size + " " + name + "<span class=\"glyphicon glyphicon-remove\"></span>");
-            itemHtml.attr("data-quantity", cart.getQuantity(item) + 1);
+            itemHtml.html(cart.getQuantity(item) + "x $" + price + " " + size + " " + name + "<span class=\"glyphicon glyphicon-remove\"></span>");
+            itemHtml.attr("data-quantity", cart.getQuantity(item));
         }
 
         total += price;
-        $(".cart-price").html(total);
+        $(".cart-price").html(total + " +$" + (total * 0.095).toFixed(2) + "(tax) = " + (total * 1.095).toFixed(2));
     }
 
     function removeFromCart() {
@@ -105,8 +118,8 @@ $(function() {
             quantity : 0
         });
 
-        total -= price * (cart.getQuantity(item) + 1);
-        $(".cart-price").html(total);
+        total -= price * (cart.getQuantity(item));
+        $(".cart-price").html(total + " +$" + (total * 0.095).toFixed(2) + "(tax) = " + (total * 1.095).toFixed(2));
 
         cart.removeItem(item);
         $(this).remove();

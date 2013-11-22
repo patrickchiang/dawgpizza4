@@ -207,18 +207,9 @@ p.footer {
 	margin-top: 10px;
 }
 
-/*
-.modal-body input {
-	border-radius: 10px;
-	border: 1px solid #ccc;
+.pricetag {
+	font-size: 12pt;
 }
-
-.modal-body p {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}*/
 
 .modal-body .form-control {
 	margin-bottom: 3px;
