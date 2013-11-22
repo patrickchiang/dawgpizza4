@@ -109,6 +109,11 @@ h5 {
 	font-weight: bold;
 }
 
+h6 {
+	font-size: 17pt;
+	margin-bottom: 24px;
+}
+
 ul {
 	overflow: hidden;
 }
@@ -166,6 +171,24 @@ p.footer {
 	text-decoration: underline;
 }
 
+.indent button.order.btn.btn-default {
+	background-color: white;
+	border-radius: 10px;
+}
+
+.pizzas {
+	margin: 8px;
+}
+
+.cart-item {
+	margin-top: 20px;
+	display: block;
+}
+
+.template {
+	display: none;
+}
+
 @media screen and (max-width: 1170px) {
 	.video-container {
 		position: relative;
@@ -183,7 +206,6 @@ p.footer {
 		height: 100%;
 	}
 }
-
 
 @media screen and (max-width: 800px) {
 	.banner {

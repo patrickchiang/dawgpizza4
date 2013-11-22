@@ -47,6 +47,11 @@ function CartModel() {
         }
         return -1;
     };
+    
+    this.getQuantity = function(item) {
+        var i = this.existsInCart(item);
+        return this.items[i].quantity;
+    };
 
     this.removeItem = function(item) {
         var index = this.items.indexOf(item);
